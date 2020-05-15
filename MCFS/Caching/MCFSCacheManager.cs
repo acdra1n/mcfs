@@ -14,8 +14,8 @@ namespace MCFS.Caching
         private int cache_max_limit;
         private long cache_track_totalLength;
 
-        public volatile byte[][] data_store;
-        public volatile string[] file_refs;
+        private volatile byte[][] data_store;
+        private volatile string[] file_refs;
         private int current_dsIndex = 0;
 
         public MCFSCacheManager(int sizeMax)
