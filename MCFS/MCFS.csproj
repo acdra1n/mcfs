@@ -47,10 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching\MCFSCacheManager.cs" />
     <Compile Include="MCFSDrv.cs" />
     <Compile Include="MCFSParams.cs" />
     <Compile Include="MCFSProg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Win32\Win32Methods.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
