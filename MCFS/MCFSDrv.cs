@@ -270,9 +270,14 @@ namespace MCFS
 
         public NtStatus GetDiskFreeSpace(out long freeBytesAvailable, out long totalNumberOfBytes, out long totalNumberOfFreeBytes, IDokanFileInfo info)
         {
-            freeBytesAvailable = 1024 * 1024 * 1024;
-            totalNumberOfBytes = 1024 * 1024 * 1024;
-            totalNumberOfFreeBytes = 1024 * 1024 * 1024;
+            /*freeBytesAvailable = 1024 * 1024 * 1024;
+            totalNumberOfBytes = 1024 * 1024 * 900;
+            totalNumberOfFreeBytes = 1024 * 1024 * 900;*/
+            var dinfo = DriveInfo.GetDrives().Single(di => string.Equals(di.RootDirectory.Name, Path.GetPathRoot(mparams.TargetDataLocation + "\\"), StringComparison.OrdinalIgnoreCase));
+
+            freeBytesAvailable = dinfo.TotalFreeSpace;
+            totalNumberOfBytes = dinfo.TotalSize;
+            totalNumberOfFreeBytes = dinfo.AvailableFreeSpace;
             return DokanResult.Success;
         }
 
@@ -315,6 +320,7 @@ namespace MCFS
             features = FileSystemFeatures.CasePreservedNames | FileSystemFeatures.CaseSensitiveSearch |
                        FileSystemFeatures.PersistentAcls | FileSystemFeatures.SupportsRemoteStorage |
                        FileSystemFeatures.UnicodeOnDisk;
+                       //FileSystemFeatures.ReadOnlyVolume;
             fileSystemName = "MCFS";
             maximumComponentLength = 256;
             volumeLabel = mparams.VolumeLabel;
@@ -337,6 +343,8 @@ namespace MCFS
         public NtStatus Mounted(IDokanFileInfo info)
         {
             // TASKS TO DO ON MOUNT
+            Console.WriteLine("moutned");
+            mparams.Logger.Log(Logging.LogLevel.INFO, "Filesystem mounted. FS root is {0}.", mparams.TargetDataLocation);
             return DokanResult.Success;
         }
 

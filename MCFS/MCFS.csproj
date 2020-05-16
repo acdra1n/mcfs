@@ -57,6 +57,7 @@
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="MCFSDrv.cs" />
     <Compile Include="MCFSParams.cs" />
     <Compile Include="MCFSProg.cs" />

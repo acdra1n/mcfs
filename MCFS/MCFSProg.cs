@@ -19,12 +19,13 @@ namespace MCFS
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Memory Cached File System (MCFS). Copyright (C) acdra1n 2020.\n");
             Console.ResetColor();
-            
+
             Dokan.Mount(new MCFSDrv(new MCFSParams()
             {
-                TargetDataLocation = "c:\\fsroot",
-                VolumeLabel = "mcfstest"
-            }), "N:\\", DokanOptions.DebugMode, 5);
+                TargetDataLocation = Environment.CurrentDirectory + "\\fsroot",
+                VolumeLabel = "mcfstest",
+                Logger = new Logging.ConsoleLogger()
+            }), "K:\\", DokanOptions.FixedDrive, 5, new Logger((a,b)=> { }, (a,b)=> { }, (a,b)=> { }, (a,b)=> { }, (a,b)=> { }));
         }
     }
 }
