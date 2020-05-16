@@ -1,4 +1,5 @@
 ﻿using DokanNet;
+using DokanNet.Logging;
 using MCFS.Caching;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace MCFS
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Memory Cached File System (MCFS). Copyright (C) acdra1n 2020.\n");
             Console.ResetColor();
+            
             Dokan.Mount(new MCFSDrv(new MCFSParams()
             {
                 TargetDataLocation = "c:\\fsroot",
