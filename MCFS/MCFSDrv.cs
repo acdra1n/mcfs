@@ -10,7 +10,7 @@ using FileAccess = DokanNet.FileAccess;
 
 namespace MCFS
 {
-    public class MCFSDrvOld : IDokanOperations
+    public class MCFSDrv : IDokanOperations
     {
         private MCFSParams mparams;
 
@@ -23,7 +23,7 @@ namespace MCFS
                                                    FileAccess.Delete |
                                                    FileAccess.GenericWrite;
 
-        public MCFSDrvOld(MCFSParams p)
+        public MCFSDrv(MCFSParams p)
         {
             mparams = p;
 
@@ -38,7 +38,7 @@ namespace MCFS
 
         public string GetDiskPath(string fileName)
         {
-            return mparams.VolumeLabel + fileName;
+            return mparams.TargetDataLocation + fileName;
         }
 
         public void Cleanup(string fileName, IDokanFileInfo info)
@@ -239,6 +239,14 @@ namespace MCFS
         {
             files = Util_FindFiles(fileName, searchPattern);
             return DokanResult.Success;
+        }
+
+        public NtStatus FindStreams(string fileName, IntPtr enumContext, out string streamName, out long streamSize,
+            DokanFileInfo info)
+        {
+            streamName = string.Empty;
+            streamSize = 0;
+            return DokanResult.NotImplemented;
         }
 
         public NtStatus FindStreams(string fileName, out IList<FileInformation> streams, IDokanFileInfo info)

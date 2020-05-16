@@ -7,7 +7,7 @@
     <ProjectGuid>{784B6BEC-6794-4447-91D5-737950F320DB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>MCFS</RootNamespace>
-    <AssemblyName>MCFS</AssemblyName>
+    <AssemblyName>MCFSHostUMDDrv</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caching\MCFSCacheManager.cs" />
-    <Compile Include="MCFSDrvOld.cs" />
+    <Compile Include="MCFSDrv.cs" />
     <Compile Include="MCFSParams.cs" />
     <Compile Include="MCFSProg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

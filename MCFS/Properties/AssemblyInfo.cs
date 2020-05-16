@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MCFS")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Memory Cached File System (MCFS) User-mode Driver Host")]
+[assembly: AssemblyDescription("MCFS UMD Driver Host")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("acdra1n")]
 [assembly: AssemblyProduct("MCFS")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © acdra1n 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
